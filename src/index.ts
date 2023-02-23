@@ -1,5 +1,6 @@
 import fs from 'fs';
 
+// To read file
 const matches = fs.readFileSync('football.csv', {
   encoding: 'utf8'
 })
@@ -10,4 +11,13 @@ const matches = fs.readFileSync('football.csv', {
     }
   );
 
-console.log(matches);
+let manUnitedWins = 0;
+
+for (let match of matches) {
+  if (match[1] === 'Man United' && match[5] === 'H') {
+    manUnitedWins++;
+  } else if (match[2] === 'Man United' && match[5] === 'A') {
+    manUnitedWins++;
+  }
+}
+console.log(`Man United won ${manUnitedWins} games`);
